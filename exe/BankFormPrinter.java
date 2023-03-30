@@ -1,6 +1,6 @@
-package exe;
+package exe.exe;
 
-import static exe.NumberToChineseUtil.toChineseRMB;
+import static exe.exe.NumberToChineseUtil.toChineseRMB;
 
 public class BankFormPrinter {
     public static void print(String accountName, String accountNumber,double amount,int moon,double balance) {
@@ -16,7 +16,7 @@ public class BankFormPrinter {
         System.out.println("---------------------------------------------------------");
         System.out.printf("%-20s%-20s%-20s%n", "日期", "交易类型", "金额（元）");
         System.out.println("---------------------------------------------------------");
-        System.out.println(moon+"月\t      "+"           定期存款\t"+   "              "+    amount+"\t");
+        System.out.println(moon+"月\t      "+"          定期存款\t"+   "             "+    amount+"\t");
         System.out.println("---------------------------------------------------------\n");
         System.out.println("余额："+toChineseRMB(balance));
 
@@ -38,7 +38,7 @@ public class BankFormPrinter {
         System.out.println("---------------------------------------------------------");
         System.out.printf("%-20s%-20s%-20s%n",  "交易类型", "金额（元）");
         System.out.println("---------------------------------------------------------");
-        System.out.println("       "+"           活期存款\t"+   "              "+    amount+"\t");
+        System.out.println("       "+"         活期存款\t"+   "            "+    amount+"\t");
         System.out.println("---------------------------------------------------------\n");
         System.out.println("余额："+toChineseRMB(balance));
 

@@ -1,15 +1,17 @@
-package exe;
+package exe.exe;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-import static exe.BankFormPrinter.print2;
-import static exe.DepositAccount.balance;
+import static exe.exe.BankFormPrinter.print2;
+import static exe.exe.BankSystem.balance;
+import static exe.exe.BankSystem.withdraw;
 
 public class Main  {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ATM atm = new ATM(0); // 初始化ATM对象，初始余额为10000元
+
         System.out.println("请输入账号信息：");
         System.out.print("账号：");
         String accountNumber=scanner.nextLine();
@@ -25,14 +27,17 @@ public class Main  {
                 case 3:
                     System.out.println("账号："+accountNumber);
                     System.out.println("用户名："+accountName);
-                    atm.checkBalance();
+                    DepositAccount.showBalance();
                     break;
                 case 2:
                     System.out.println("账号："+accountNumber);
                     System.out.println("用户名："+accountName);
                     System.out.println("请输入取款金额");
-                    double amount =scanner.nextDouble();
-                    atm.withdraw(amount);
+                    double num =scanner.nextDouble();
+                    BankSystem bank=new BankSystem(balance);
+                    withdraw(num);
+
+
                     break;
                 case 1:
                     System.out.println("账号："+accountNumber);
@@ -43,7 +48,7 @@ public class Main  {
                     System.out.println("3. 整存整取");
                     int depositType = scanner.nextInt();
                     System.out.print("请输入存款金额（元）：");
-                    amount = scanner.nextDouble();
+                    double amount = scanner.nextDouble();
                     // 根据不同存款方式创建不同的存款信息对象
                     switch (depositType) {
                         case 1: // 定期存款
@@ -61,6 +66,9 @@ public class Main  {
                             break;
                         case 2: // 活期存款
                             DepositAccount.currentDeposit(amount);
+
+                            System.out.println("1.输出银行表单");
+                            System.out.println("2.跳过这步操作");
                             jud=scanner.nextInt();
                             if (jud==1){
                                 BigDecimal bigDecimal=new BigDecimal(String.valueOf(balance));
@@ -72,6 +80,8 @@ public class Main  {
                             System.out.println("请输入想要存入的年份");
                              int year= scanner.nextInt();
                             DepositAccount.regularDeposit(amount,year);
+                            System.out.println("1.输出银行表单");
+                            System.out.println("2.跳过这步操作");
                             jud=scanner.nextInt();
                             if (jud==1){
                                 BigDecimal bigDecimal=new BigDecimal(String.valueOf(balance));

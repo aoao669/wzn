@@ -1,4 +1,4 @@
-package exe;
+package exe.exe;
 
 public class NumberToChineseUtil {
     private static final char[] CN_NUMERIC = {'零','壹','贰','叁','肆','伍','陆','柒','捌','玖'};
