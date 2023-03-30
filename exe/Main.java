@@ -4,11 +4,9 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 import static exe.exe.BankFormPrinter.print2;
-import static exe.exe.BankSystem.balance;
-import static exe.exe.BankSystem.withdraw;
 
 public class Main  {
-
+    static double balance;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -34,8 +32,7 @@ public class Main  {
                     System.out.println("用户名："+accountName);
                     System.out.println("请输入取款金额");
                     double num =scanner.nextDouble();
-                    BankSystem bank=new BankSystem(balance);
-                    withdraw(num);
+                    BankAccount.withdraw(num);
 
 
                     break;
@@ -63,6 +60,7 @@ public class Main  {
                                 double balance1=bigDecimal.doubleValue();
                                 BankFormPrinter.print(accountName,accountNumber,amount,moon,balance1);
                             }
+
                             break;
                         case 2: // 活期存款
                             DepositAccount.currentDeposit(amount);
